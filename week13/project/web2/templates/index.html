@@ -1,0 +1,32 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>📊 통계 요약</h2>
+  <div class="stats">
+    <div class="stat-box"><b>전체</b><br>{{ stats.cnt }}건</div>
+    <div class="stat-box"><b>평균</b><br>{{ stats.avg }}</div>
+    <div class="stat-box"><b>최대</b><br>{{ stats.mx }}</div>
+    <div class="stat-box"><b>최소</b><br>{{ stats.mn }}</div>
+    {% if report.outliers %}
+    <div class="stat-box"><b>이상치</b><br>{{ report.outliers }}건</div>
+    {% endif %}
+  </div>
+</div>
+<div class="card">
+  <h2>📈 분석 그래프</h2>
+  <img src="{{ url_for('static', filename='dashboard.png') }}"
+       style="width:100%; max-width:800px;">
+</div>
+<div class="card">
+  <h2>🔢 최근 데이터 (10건)</h2>
+  <table>
+    <tr><th>ID</th><th>Type</th><th>Raw</th><th>Lux</th><th>Time</th></tr>
+    {% for row in recent %}
+    <tr><td>{{row.id}}</td><td>{{row.sensor_type}}</td>
+        <td>{{row.raw_value}}</td><td>{{row.lux}}</td>
+        <td>{{row.timestamp}}</td></tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
