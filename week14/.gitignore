@@ -1,0 +1,13 @@
+# Files/folders to exclude from Git tracking (Comments must be line by line!)
+
+# Build artifacts
+obj/
+sensor_sim
+ipc_receiver
+
+# Generated at runtime (sensor.db, dashboard.png, report.json)
+data/
+
+# Python cache / virtual environment
+__pycache__/
+.venv/

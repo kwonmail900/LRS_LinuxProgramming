@@ -1,0 +1,16 @@
+<!-- 13주차 1교시 - slide 9 (우측 코드 박스) : templates/index.html -->
+<h1>센서 데이터</h1>
+<table border="1">
+  <tr>
+    <th>ID</th><th>Type</th>
+    <th>Raw</th><th>Lux</th>
+  </tr>
+  {% for row in data %}
+  <tr>
+    <td>{{ row[0] }}</td>
+    <td>{{ row[1] }}</td>
+    <td>{{ row[2] }}</td>
+    <td>{{ row[3] }}</td>
+  </tr>
+  {% endfor %}
+</table>
